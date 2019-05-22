@@ -5,5 +5,11 @@
   "main": "index.js",
   "repository": "git@github.com:liamjcrewe/jsfactory.git",
   "author": "Liam Crewe <liam.j.crewe@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "jsfactory": "bin/jsfactory.js"
+  },
+  "dependencies": {
+    "commander": "^2.20.0"
+  }
 }
