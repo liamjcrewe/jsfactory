@@ -2,6 +2,7 @@
 const fs = require('fs-extra')
 const program = require('commander')
 const inquirer = require('inquirer')
+const replace = require('replace-in-file')
 
 const gatherInputs = () =>
   inquirer.prompt([
@@ -48,6 +49,14 @@ const run = async () => {
   }
 
   fs.copySync(`${__dirname}/../nextjs-react-app`, path)
+
+  console.log('Setting up files...')
+
+  replace.sync({
+    files: [`${path}/package.json`, `${path}/README.md`],
+    from: ['##NAME##', '##DESCRIPTION##', '##AUTHOR##', '##LICENSE##'],
+    to: [name, description, author, license]
+  })
 }
 
 program.version('0.0.1').parse(process.argv)

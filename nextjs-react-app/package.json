@@ -1,9 +1,9 @@
 {
-  "name": "NAME",
+  "name": "##NAME##",
   "version": "1.0.0",
-  "description": "DESCRIPTION",
-  "author": "AUTHOR",
-  "license": "LICENSE",
+  "description": "##DESCRIPTION##",
+  "author": "##AUTHOR##",
+  "license": "##LICENSE##",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "next": "^8.1.0",
