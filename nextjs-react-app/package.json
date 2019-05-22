@@ -5,9 +5,11 @@
   "author": "AUTHOR",
   "license": "LICENSE",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "sanitize.css": "^9.0.0",
     "styled-components": "^4.2.0"
   },
   "scripts": {
