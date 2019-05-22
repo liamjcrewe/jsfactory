@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 const fs = require('fs-extra')
+const chalk = require('chalk')
 const shell = require('shelljs')
 const program = require('commander')
 const inquirer = require('inquirer')
@@ -41,22 +42,26 @@ const directoryNotEmpty = path =>
   fs.existsSync(path) && fs.readdirSync(path).length > 0
 
 const run = async useNpm => {
-  console.log('Gathering inputs...')
+  console.log(chalk.cyan('Gathering inputs...'))
   const { name, description, author, license } = await gatherInputs()
 
-  console.log(`Generating ${name}...`)
+  console.log(chalk.cyan(`Generating ${chalk.bold(name)}...`))
 
   const path = `${process.cwd()}/${name}`
 
   if (directoryNotEmpty(path)) {
-    console.error(`Directory ${path} exists and is not empty. Exiting...`)
+    console.error(
+      chalk.red(
+        `Directory ${chalk.bold(path)} exists and is not empty. Exiting...`
+      )
+    )
 
     process.exit(1)
   }
 
   fs.copySync(`${__dirname}/../nextjs-react-app`, path)
 
-  console.log('Setting up files...')
+  console.log(chalk.cyan('Setting up files...'))
 
   replace.sync({
     files: [`${path}/package.json`, `${path}/README.md`],
@@ -64,14 +69,18 @@ const run = async useNpm => {
     to: [name, description, author, license]
   })
 
-  console.log('Installing packages...')
+  console.log(chalk.cyan('Installing packages...'))
 
   shell.exec(`(cd ${path} && ${useNpm ? 'npm i' : 'yarn'})`)
 
-  console.log('Done! You can start your app by running the following:')
+  console.log(
+    chalk.bold.green.inverse(
+      'Done! You can start your app by running the following:'
+    )
+  )
 
-  console.log(`  cd ${name}`)
-  console.log(`  ${useNpm ? 'npm run' : 'yarn'} dev`)
+  console.log(chalk.green(`  cd ${name}`))
+  console.log(chalk.green(`  ${useNpm ? 'npm run' : 'yarn'} dev`))
 }
 
 program
@@ -80,7 +89,11 @@ program
   .parse(process.argv)
 
 if (!program.useNpm && !isYarnInstalled()) {
-  console.error('Yarn not found - install Yarn or run with --use-npm.')
+  console.error(
+    chalk.red(
+      `Yarn not found - install Yarn or run with ${chalk.bold('--use-npm')}.`
+    )
+  )
 
   process.exit(1)
 }
