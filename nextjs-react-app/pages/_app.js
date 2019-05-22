@@ -3,7 +3,13 @@ import App, { Container } from 'next/app'
 
 import { ThemeProvider } from 'styled-components'
 
-const theme = {}
+const theme = {
+  colors: {
+    primary: '#FFFFFF',
+    secondary: '#000000',
+    tertiary: '#0070F3'
+  }
+}
 
 export default class ThemedApp extends App {
   static async getInitialProps ({ Component, ctx }) {
