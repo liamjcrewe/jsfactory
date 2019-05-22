@@ -41,12 +41,8 @@ const directoryNotEmpty = path =>
   fs.existsSync(path) && fs.readdirSync(path).length > 0
 
 const run = async useNpm => {
-  console.log('Running...')
-
   console.log('Gathering inputs...')
   const { name, description, author, license } = await gatherInputs()
-
-  console.log(name, description, author, license)
 
   console.log(`Generating ${name}...`)
 
@@ -71,6 +67,11 @@ const run = async useNpm => {
   console.log('Installing packages...')
 
   shell.exec(`(cd ${path} && ${useNpm ? 'npm i' : 'yarn'})`)
+
+  console.log('Done! You can start your app by running the following:')
+
+  console.log(`  cd ${name}`)
+  console.log(`  ${useNpm ? 'npm run' : 'yarn'} dev`)
 }
 
 program
