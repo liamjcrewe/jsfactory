@@ -5,7 +5,6 @@
   "repository": "git@github.com:liamjcrewe/jsfactory.git",
   "license": "MIT",
   "author": "Liam Crewe <liam.j.crewe@gmail.com>",
-  "main": "index.js",
   "bin": {
     "jsfactory": "bin/jsfactory.js"
   },
