@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 const fs = require('fs-extra')
+const shell = require('shelljs')
 const program = require('commander')
 const inquirer = require('inquirer')
 const replace = require('replace-in-file')
@@ -57,6 +58,10 @@ const run = async () => {
     from: ['##NAME##', '##DESCRIPTION##', '##AUTHOR##', '##LICENSE##'],
     to: [name, description, author, license]
   })
+
+  console.log('Installing packages...')
+
+  shell.exec(`(cd ${path} && yarn)`)
 }
 
 program.version('0.0.1').parse(process.argv)
