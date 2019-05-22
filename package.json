@@ -2,10 +2,10 @@
   "name": "jsfactory",
   "version": "1.0.0",
   "description": "Easily generate modern JavaScript applications",
-  "main": "index.js",
   "repository": "git@github.com:liamjcrewe/jsfactory.git",
-  "author": "Liam Crewe <liam.j.crewe@gmail.com>",
   "license": "MIT",
+  "author": "Liam Crewe <liam.j.crewe@gmail.com>",
+  "main": "index.js",
   "bin": {
     "jsfactory": "bin/jsfactory.js"
   },
