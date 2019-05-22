@@ -1,0 +1,27 @@
+{
+  "name": "NAME",
+  "version": "1.0.0",
+  "description": "DESCRIPTION",
+  "author": "AUTHOR",
+  "license": "LICENSE",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sanitize.css": "^9.0.0",
+    "styled-components": "^4.2.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "standard --verbose | snazzy",
+    "lint-fix": "standard --fix"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1"
+  }
+}
