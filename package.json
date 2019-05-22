@@ -10,6 +10,7 @@
     "jsfactory": "bin/jsfactory.js"
   },
   "dependencies": {
-    "commander": "^2.20.0"
+    "commander": "^2.20.0",
+    "inquirer": "^6.3.1"
   }
 }
