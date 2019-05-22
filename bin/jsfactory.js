@@ -12,7 +12,13 @@ const gatherInputs = () =>
   inquirer.prompt([
     {
       name: 'name',
-      message: 'Name: '
+      message: 'Name: ',
+      validate: input => {
+        if (!input) return 'Name is required'
+        if (input.includes(' ')) return 'Name cannot contain spaces'
+
+        return true
+      }
     },
     {
       name: 'description',
