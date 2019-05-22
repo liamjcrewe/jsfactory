@@ -5,6 +5,9 @@ const program = require('commander')
 const inquirer = require('inquirer')
 const replace = require('replace-in-file')
 
+const isYarnInstalled = () =>
+  shell.exec('yarn --version', { silent: true }).code === 0
+
 const gatherInputs = () =>
   inquirer.prompt([
     {
@@ -31,7 +34,7 @@ const gatherInputs = () =>
 const directoryNotEmpty = path =>
   fs.existsSync(path) && fs.readdirSync(path).length > 0
 
-const run = async () => {
+const run = async useNpm => {
   console.log('Running...')
 
   console.log('Gathering inputs...')
@@ -61,9 +64,18 @@ const run = async () => {
 
   console.log('Installing packages...')
 
-  shell.exec(`(cd ${path} && yarn)`)
+  shell.exec(`(cd ${path} && ${useNpm ? 'npm i' : 'yarn'})`)
 }
 
-program.version('0.0.1').parse(process.argv)
+program
+  .version('0.0.1')
+  .option('--use-npm', 'use npm rather than yarn to install packages')
+  .parse(process.argv)
 
-run()
+if (!program.useNpm && !isYarnInstalled()) {
+  console.error('Yarn not found - install Yarn or run with --use-npm.')
+
+  process.exit(1)
+}
+
+run(program.useNpm)
