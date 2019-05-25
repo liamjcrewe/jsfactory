@@ -3,6 +3,7 @@ Easily generate modern JavaScript applications. Spin up applications in seconds 
 
 ## Getting started
 ### Installation
+
 ```
 yarn global add jsfactory
 ```
@@ -10,10 +11,12 @@ or with npm:
 ```
 npm i -g jsfactory
 ```
-Then simply run
-```
-jsfactory
-```
+
+### Usage
+
+<p align='center'>
+  <img src='./usage.svg' width='800' alt='Usage video'>
+</p>
 
 ## Apps
 ### Next.js React app
