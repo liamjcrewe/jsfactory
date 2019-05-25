@@ -15,7 +15,7 @@ npm i -g jsfactory
 ### Usage
 
 <p align='center'>
-  <img src='./usage.svg' width='800' alt='Usage video'>
+  <img src='https://raw.githubusercontent.com/liamjcrewe/jsfactory/master/usage.svg?sanitize=true' width='800' alt='Usage video'>
 </p>
 
 You can also run with flag `--use-npm` to use npm instead of Yarn.
