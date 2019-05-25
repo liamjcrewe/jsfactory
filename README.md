@@ -18,6 +18,8 @@ npm i -g jsfactory
   <img src='./usage.svg' width='800' alt='Usage video'>
 </p>
 
+You can also run with flag `--use-npm` to use npm instead of Yarn.
+
 ## Apps
 ### Next.js React app
 A base [Next.js](https://nextjs.org/) React app with all the great features Next.js brings plus the following:
